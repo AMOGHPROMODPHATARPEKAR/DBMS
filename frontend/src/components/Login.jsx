@@ -35,7 +35,7 @@ const Login = () => {
             }
 
         } catch (error) {
-            setError(error)
+            setError("Invalid creditails")
         }
 
     }

@@ -26,7 +26,7 @@ const Trainer = () => {
     
       <div className=' flex flex-wrap justify-center item-center  w-[80vw] my-10'>
             {list.map((post)=>(
-                <div key={post._id} className=' p-2 w-1/4' >
+                <div key={post.trainerId} className=' p-2 w-1/4' >
                     <TrainerCard {...post} />
                 </div>
             ))}

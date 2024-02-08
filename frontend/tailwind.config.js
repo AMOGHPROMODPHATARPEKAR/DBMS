@@ -17,6 +17,9 @@ export default {
         'in':"url('/src/assets/in.png')",
         'my':"url('/src/assets/my.png')",
         'best':"url('/src/assets/beast.png')",
+        'prof':"url('/src/assets/profile.png')",
+        'wk':"url('/src/assets/workout.jpg')",
+        'metric':"url('/src/assets/met.png')",
     
       }
     },

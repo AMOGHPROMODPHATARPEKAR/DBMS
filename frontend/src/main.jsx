@@ -17,6 +17,7 @@ import Inventory from './components/Inventory.jsx'
 import Trainer from './components/Trainer.jsx'
 import Statistics from './components/Statistics.jsx'
 import UserTrainer from './components/UserTrainer.jsx'
+import Metric from './pages/Metric.jsx'
 
 const router = createBrowserRouter(
   [
@@ -71,6 +72,10 @@ const router = createBrowserRouter(
         ,{
           path:'/Usertrainer',
           element:<UserTrainer/>
+        }
+        ,{
+          path:'/metric',
+          element:<Metric/>
         }
       ]
     }

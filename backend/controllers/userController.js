@@ -228,6 +228,46 @@ const AddWorkout = async(req,res)=>{
 
 }
 
+const updateMetric = async(req,res)=>{
+    const {id} = req.params;
+    const {height,weight,endurance_score} = req.body
+    const  metric_score = parseInt((parseInt(height)+parseInt(weight)+parseInt(endurance_score))/30)
+    console.log(metric_score)
+    if(metric_score>10)
+        metric_score=metric_score%10;
+    try {
+        
+        connection.query(
+            'update User set metric=? where userId=?',[metric_score,id],
+            (err,result)=>{
+                if (err) {
+
+                    console.error("Error updtaing users:", err);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Failed to update to database",
+                        error: err
+                    });
+                }else 
+                {
+                    console.log(result)
+                    return res.status(200)
+                    .json(
+                        {
+                            success:true,
+                            data:result,
+                            message:"updated User metric successfull"
+                        }
+                    )
+                }
+            }
+        )
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
 
 
 export 
@@ -238,5 +278,6 @@ export
     AddTrainer,
     AddWorkout,
     getTrainers,
+    updateMetric
 
 }

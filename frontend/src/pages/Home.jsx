@@ -29,7 +29,7 @@ const Home = () => {
       <div onClick={()=>navigate('/profile')} className=" bg-home relative bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-96 flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black cursor-pointer ">
       </div>
 
-      <div onClick={()=>navigate('/profile')} className='bg-met relative bg-no-repeat bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer' style={{backgroundPosition: 'center -130px'}}>
+      <div onClick={()=>navigate('/metric')} className='bg-met relative bg-no-repeat bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer' style={{backgroundPosition: 'center -130px'}}>
         <h1 className=' w-fit h-fit p-2 bg-white/70   rounded-md'>Metric Score</h1>
       </div>
 
