@@ -12,7 +12,7 @@ function App() {
       <div className=' min-h-screen bg-gray-700 flex flex-wrap content-between'>
       <div className=' w-full block'>
       <Header/>
-      <main className=' h-[80vh] '>
+      <main className=' h-auto '>
        <Outlet/>
       </main>
       <Footer/>

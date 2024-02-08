@@ -24,7 +24,7 @@ const Login = () => {
 
         try {
             
-            const userData = await axios.post('/api/v1/login',form)
+            const userData = await axios.post('/api/v1/user/userLogin',form)
             console.log(userData.data?.data?.user)
             if(userData)
             {
@@ -41,7 +41,7 @@ const Login = () => {
     }
   
   return (
-    <div className='flex items-center justify-center w-full'>
+    <div className='flex items-center justify-center w-full py-2'>
       <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
         <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[100px]">
@@ -75,7 +75,7 @@ const Login = () => {
            type='submit'
            className='w-full'
            >
-            Sign In
+            Log In
            </Button>
         </div>
         </form>

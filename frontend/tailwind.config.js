@@ -5,7 +5,21 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'work': "url('/src/assets/work.jpg')",
+        'admin':"url('/src/assets/admin.jpg')",
+        'inven':"url('/src/assets/inven.png')",
+        'train':"url('/src/assets/source.png')",
+        'home':"url('/src/assets/homeU.png')",
+        'trainer':"url('/src/assets/trainer.png')",
+        'met':"url('/src/assets/metric.png')",
+        'in':"url('/src/assets/in.png')",
+        'my':"url('/src/assets/my.png')",
+        'best':"url('/src/assets/beast.png')",
+    
+      }
+    },
   },
   plugins: [],
 }

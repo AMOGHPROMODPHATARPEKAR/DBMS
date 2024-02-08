@@ -10,6 +10,13 @@ import SignUp from './components/SignUp.jsx'
 import {Login} from './components/index.js'
 import Profile from './pages/Profile.jsx'
 import WorkoutPlan from './pages/WorkoutPlan.jsx'
+import AdminLogin from './pages/AdminLogin.jsx'
+import AddTrainer from './pages/AddTrainer.jsx'
+import AddWorkouPlan from './pages/AddWorkouPlan.jsx'
+import Inventory from './components/Inventory.jsx'
+import Trainer from './components/Trainer.jsx'
+import Statistics from './components/Statistics.jsx'
+import UserTrainer from './components/UserTrainer.jsx'
 
 const router = createBrowserRouter(
   [
@@ -26,8 +33,12 @@ const router = createBrowserRouter(
           element:<SignUp/>
         },
         {
-          path:'/login',
+          path:'/userlogin',
           element:<Login/>
+        },
+        {
+          path:'/adminlogin',
+          element:<AdminLogin/>
         },
         {
           path:'/profile',
@@ -36,6 +47,30 @@ const router = createBrowserRouter(
         {
           path:'/work-plan',
           element:<WorkoutPlan/>
+        },
+        {
+          path:'/add-trainer',
+          element:<AddTrainer/>
+        },
+        {
+          path:'/add-work',
+          element:<AddWorkouPlan/>
+        },
+        {
+          path:'/inventory',
+          element:<Inventory/>
+        },
+        {
+          path:'/trainer',
+          element:<Trainer/>
+        }
+        ,{
+          path:'/statistic',
+          element:<Statistics/>
+        }
+        ,{
+          path:'/Usertrainer',
+          element:<UserTrainer/>
         }
       ]
     }

@@ -3,7 +3,8 @@ import cors from 'cors';
 import express from 'express';
 import cookieParser from 'cookie-parser'
 import dotenv from "dotenv"
-import { createUser, login } from './controllers/userController.js';
+import { AddTrainer, AddWorkout, AdminLogin, Userlogin, createUser,getTrainers } from './controllers/userController.js';
+import { deleteItem, getInventory } from './controllers/InventoryController.js';
 
 const app = express();
 const PORT = 4000;
@@ -44,8 +45,19 @@ connection.connect((err) => {
 });
 
 
-app.post('/api/v1/createUser',createUser)
-app.post('/api/v1/login',login)
+
+//user and admin
+app.post('/api/v1/user/createUser',createUser)
+app.post('/api/v1/user/userLogin',Userlogin)
+app.post('/api/v1/admin/adminLogin',AdminLogin)
+app.post('/api/v1/admin/addTrainer',AddTrainer)
+app.post('/api/v1/admin/addWorkout',AddWorkout)
+app.get('/api/v1/admin/getTrainer',getTrainers)
+
+
+//inventory
+app.get('/api/v1/inventory/getInventory',getInventory)
+app.post('/api/v1/inventory/delete/:inventoryid',deleteItem)
 
 export {connection}
 
