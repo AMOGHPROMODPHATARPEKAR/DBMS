@@ -9,10 +9,16 @@ const TrainerCard = ({
     trainerName,
     experience,
     speciality,
-    user=false
+    user=false,
+    enrolled
 }) => {
     const navigate = useNavigate()
-  
+
+    const addTrainer = async() =>{
+
+      
+
+    }
     
   return (
     <div className={`w-full ${user ? 'bg-orange-300 opacity-90' : 'bg-gray-100'}  rounded-xl p-4 cursor-pointer`}>
@@ -24,7 +30,7 @@ const TrainerCard = ({
             <p>Speciality:{speciality}</p>
            
             </div>
-            {user && <div className=' mt-4 w-full flex justify-center items-center'>
+            {user && <div className=' mt-4 w-full flex justify-center items-center' onClick={addTrainer} disabled={enrolled}>
                     <Button>Train</Button>
                    </div> }
 

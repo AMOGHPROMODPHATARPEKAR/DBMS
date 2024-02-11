@@ -60,7 +60,7 @@ const Signup = () => {
       if(response)
       {
         console.log(response.data.data)
-        navigate('/login')
+        navigate('/userlogin')
       }
       console.log('Data sent successfully:', response.data);
     } catch (error) {
@@ -82,7 +82,7 @@ const Signup = () => {
         <p className="mt-2 text-center text-base text-black/60">
                     I have account 
                     <Link
-                        to="/login"
+                        to="/userlogin"
                         className="font-medium text-primary transition-all duration-200 hover:underline pl-1"
                     >
                         Login

@@ -13,6 +13,8 @@ const UserTrainer = () => {
         .then((item)=> setList(item.data?.data))
         .catch((err)=> console.error(err))
 
+        
+
     },[])
 
   return (

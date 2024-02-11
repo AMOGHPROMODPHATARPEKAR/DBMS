@@ -143,7 +143,7 @@ const getUserWorkout = async(req,res)=>{
     console.log(userId)
     try {
         connection.query(
-            'CREATE OR REPLACE VIEW UserWorkoutPlans AS SELECT wp.*FROM Enrollment e JOIN WorkoutPlan wp ON e.planId = wp.planId WHERE e.userId = ?;',[userId],
+            'CREATE OR REPLACE VIEW UserWorkoutPlans AS SELECT wp.*,t.trainerName,t.experience FROM Enrollment e JOIN WorkoutPlan wp ON e.planId = wp.planId JOIN Trainer t ON wp.trainerId = t.trainerId WHERE e.userId = ?;',[userId],
             (err,result)=>{
                 if(err)
                 {

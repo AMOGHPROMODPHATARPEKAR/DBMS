@@ -238,7 +238,7 @@ const updateMetric = async(req,res)=>{
     try {
         
         connection.query(
-            'update User set metric=? where userId=?',[metric_score,id],
+            'UPDATE User set metric=? where userId=?',[metric_score,id],
             (err,result)=>{
                 if (err) {
 
