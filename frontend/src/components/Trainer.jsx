@@ -7,7 +7,7 @@ import TrainerCard from './TrainerCard'
 const Trainer = () => {
 
     const [list,setList]= useState([])
-
+    
     useEffect(()=>{
 
         axios.get('api/v1/admin/getTrainer')

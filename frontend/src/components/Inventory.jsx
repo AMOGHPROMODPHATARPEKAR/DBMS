@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import InventoryCard from './InventoryCard'
+import {AiFillPlusCircle} from 'react-icons/ai'
 
 const Inventory = () => {
     const navigate = useNavigate()
@@ -14,7 +15,7 @@ const Inventory = () => {
         .then((item)=>setList(item.data?.data))
         .catch((err)=>console.error(err))
     },[])
-console.log(list)
+// console.log(list)
   return (
     <div className="flex flex-col justify-center items-center ">
       <div onClick={()=>navigate('/inventory')} className=" bg-in relative bg-center bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-96 flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black cursor-pointer ">
@@ -29,10 +30,11 @@ console.log(list)
                     <InventoryCard {...post}/>
                 </div>
             ))}
+            
+            <div onClick={()=>navigate('/add-inventory')} className=' cursor-pointer mt-5 ml-5 flex justify-center items-center'>
+             <AiFillPlusCircle size={100} fill='white' /> 
             </div>
-
-      
-
+       </div>
     </div>
   )
 }

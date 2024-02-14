@@ -4,16 +4,39 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import WorkoutCard from '../components/WorkoutCard'
 
+
 const Profile = () => {
 
   const [workout,setWorkout] = useState([])
+  const [trainer,setTrainer] = useState({})
   const navigate = useNavigate()
-  const user = useSelector((state)=>state.auth.userData)
+  const userData = useSelector((state)=>state.auth.userData)
+  const [user,setUser] = useState({})
 
   useEffect(()=>{
-    axios.get(`/api/v1/workout/userWorkout/${user.userId}`)
+    axios.get(`/api/v1/workout/userWorkout/${userData.userId}`)
     .then((item)=>setWorkout(item?.data?.data))
+
+    axios.get(`/api/v1/user/get/${userData.userId}`)
+    .then((item)=>setUser(item.data?.data[0]))
+    .catch((err)=>console.error(err))
+    
+    axios.get(`/api/v1/user/getTrainer/${userData.trainer}`)
+    .then((item)=>setTrainer(item.data?.data[0]))
+    .catch((err)=>console.error(err))
+    
   },[])
+
+
+  useEffect(()=>{
+    if(!(Object.keys(user).length === 0))
+    {
+      axios.get(`/api/v1/user/getTrainer/${user.trainer}`)
+      .then((item)=>setTrainer(item.data?.data[0]))
+      .catch((err)=>console.error(err))
+    }
+    
+  },[user])
 
   return (
     <div className="flex flex-col justify-center items-center ">
@@ -50,6 +73,23 @@ const Profile = () => {
                 </div>
             ))}
       </div>
+
+      <div className=' flex flex-wrap justify-center item-center  w-[80vw] my-10'>
+        <h1 className='w-full py-4 bg-gradient-to-r from-[#0407ca] to-[#ef4444] font-bold text-3xl text-center rounded-md'>My Trainer</h1>
+        
+        <div className=' w-1/4 flex justify-center items-center bg-slate-100 rounded-lg mt-5 gap-y-2'>
+        <div>
+        <h2
+            className='text-lg font-bold'
+            >Name : {trainer.trainerName}</h2>
+            <p className='my-1'><span className='text-lg font-bold'>Experience :</span> {trainer.experience}</p>
+            <p className=' my-1'><span className='text-lg font-bold'>Speciality :</span> {trainer.speciality}</p>
+        </div>
+
+        </div>
+
+      </div>
+      
 
       
 

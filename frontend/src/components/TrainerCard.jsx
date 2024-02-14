@@ -1,8 +1,9 @@
 import axios from 'axios'
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {AiTwotoneDelete} from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
+
 
 const TrainerCard = ({
     trainerId,
@@ -10,16 +11,43 @@ const TrainerCard = ({
     experience,
     speciality,
     user=false,
-    enrolled
+    enrolled=false,
+    userData={}
 }) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+  const [train,setTrain] = useState(enrolled)
+// console.log("UU",userData)
+  useEffect(()=>{
+    if(userData.trainer !== trainerId)
+    {
+      setTrain(false)
+    }
+    else
+    {
+      setTrain(true)
+    }
+  },[])
 
-    const addTrainer = async() =>{
-
-      
-
+  const addTrainer = async() =>{
+    
+    const response = await axios.patch('/api/v1/user/addTrainer',{
+      trainerId:trainerId,
+      userId:userData.userId
+    })
+    if(response)
+    {
+     
+      setTrain(true)
+      console.log(response.data?.data)
+      navigate('/')
+    }
+    else
+    {
+      console.error("Error inserting")
     }
     
+  }
+  
   return (
     <div className={`w-full ${user ? 'bg-orange-300 opacity-90' : 'bg-gray-100'}  rounded-xl p-4 cursor-pointer`}>
             <div>
@@ -30,8 +58,10 @@ const TrainerCard = ({
             <p>Speciality:{speciality}</p>
            
             </div>
-            {user && <div className=' mt-4 w-full flex justify-center items-center' onClick={addTrainer} disabled={enrolled}>
-                    <Button>Train</Button>
+            {user && <div className=' mt-4 w-full flex justify-center items-center' onClick={addTrainer} disabled={train} >
+            <button className={`px-4 py-2 rounded-lg ${train ? 'bg-gray-500' : 'bg-blue-500' }`}>
+                Train
+            </button>
                    </div> }
 
             

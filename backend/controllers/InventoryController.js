@@ -76,7 +76,45 @@ const  deleteItem = async(req,res)=>{
 
 }
 
+const addInventory = async(req,res)=>{
+    const {itemName,qty,purchase,update}= req.body;
+
+    try {
+        
+        connection.query(
+            'Insert into Inventory (itemname,qauntity,purchaseDate,updated) values (?,?,?,?)',[itemName,qty,purchase,update],
+            (err,result)=>{
+                if (err) {
+
+                    console.error("Error  Inserting inventory:", err);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Failed to insert to database",
+                        error: err
+                    });
+                }else 
+                {
+                    console.log(result)
+                    return res.status(200)
+                    .json(
+                        {
+                            success:true,
+                            data:result,
+                            message:"Inventory item Added successfull"
+                        }
+                    )
+                }
+            }
+        )
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
 export {
     getInventory,
-    deleteItem
+    deleteItem,
+    addInventory
 }
