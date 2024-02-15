@@ -4,7 +4,6 @@ import {AiTwotoneDelete} from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
 
-
 const TrainerCard = ({
     trainerId,
     trainerName,
@@ -16,7 +15,7 @@ const TrainerCard = ({
 }) => {
   const navigate = useNavigate()
   const [train,setTrain] = useState(enrolled)
-// console.log("UU",userData)
+
   useEffect(()=>{
     if(userData.trainer !== trainerId)
     {
@@ -47,9 +46,11 @@ const TrainerCard = ({
     }
     
   }
+
+  
   
   return (
-    <div className={`w-full ${user ? 'bg-orange-300 opacity-90' : 'bg-gray-100'}  rounded-xl p-4 cursor-pointer`}>
+    <div className={`w-full ${user ? 'bg-orange-300 opacity-90' : 'bg-gray-100'}  rounded-xl p-4 cursor-alias`}>
             <div>
             <h2
             className='text-lg font-bold'

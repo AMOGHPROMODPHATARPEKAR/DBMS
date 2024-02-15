@@ -304,6 +304,7 @@ const  addTrainer = async(req,res)=>{
     }
 }
 
+
 const getUserTrainer = async(req,res) =>{
     const {id} = req.params
     try {
@@ -373,6 +374,77 @@ const getUser= async(req,res)=>{
         console.error("Error while getting trainers")
     }
 }
+const getAllUsers= async(req,res)=>{
+
+    try {
+        
+        connection.query(
+            'SELECT u.*, t.trainerName,t.speciality FROM User u LEFT JOIN Trainer t ON u.trainer = t.trainerId;',
+            (err,result)=>{
+                if(err){
+
+                    console.error("Error Fetching User:", err);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Failed to fetch to database",
+                        error: err
+                    });
+                }else 
+                {
+                    console.log(result)
+                    return res.status(200)
+                    .json(
+                        {
+                            success:true,
+                            data:result,
+                            message:"User fetched succesfully"
+                        }
+                    )
+                }
+            }
+        )
+
+    } catch (error) {
+        console.error("Error while getting trainers")
+    }
+}
+
+const statistics = async(req,res)=>{
+    try {
+
+        connection.query(
+            `SELECT 'users' AS category, COUNT(*) AS count FROM User UNION
+            SELECT 'trainers' AS category, COUNT(*) AS count FROM Trainer UNION
+            SELECT 'inventory_items' AS category, COUNT(*) AS count FROM Inventory;
+            `,
+            (err,result)=>{
+                if(err){
+
+                    console.error("Error Fetching :", err);
+                    return res.status(500).json({
+                        success: false,
+                        message: "Failed to fetch to database",
+                        error: err
+                    });
+                }else 
+                {
+                    console.log(result)
+                    return res.status(200)
+                    .json(
+                        {
+                            success:true,
+                            data:result,
+                            message:"Statistic fetched succesfully"
+                        }
+                    )
+                }
+            }
+        )
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export 
 {
@@ -385,6 +457,8 @@ export
     getTrainers,
     updateMetric,
     addTrainer,
-    getUserTrainer
+    getUserTrainer,
+    statistics,
+    getAllUsers
 
 }

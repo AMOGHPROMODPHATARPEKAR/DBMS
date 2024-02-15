@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import cookieParser from 'cookie-parser'
 import dotenv from "dotenv"
-import { AddTrainer, AddWorkout, AdminLogin, Userlogin, addTrainer, createUser,getTrainers, getUser, getUserTrainer, updateMetric } from './controllers/userController.js';
+import { AddTrainer, AddWorkout, AdminLogin, Userlogin, addTrainer, createUser,getAllUsers,getTrainers, getUser, getUserTrainer, statistics, updateMetric } from './controllers/userController.js';
 import { addInventory, deleteItem, getInventory } from './controllers/InventoryController.js';
 import { enrollUser, enrolled, getUserWorkout, getWorkoutPlan, unroll } from './controllers/workoutController.js';
 
@@ -58,6 +58,8 @@ app.get('/api/v1/admin/getTrainer',getTrainers)
 app.post('/api/v1/admin/updateMetric/:id',updateMetric)
 app.patch('/api/v1/user/addTrainer',addTrainer)
 app.get('/api/v1/user/getTrainer/:id',getUserTrainer)
+app.get('/api/v1/admin/statistic',statistics)
+app.get('/api/v1/admin/getUsers',getAllUsers)
 
 
 //inventory

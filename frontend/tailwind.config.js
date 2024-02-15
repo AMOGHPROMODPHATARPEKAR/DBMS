@@ -20,6 +20,9 @@ export default {
         'prof':"url('/src/assets/profile.png')",
         'wk':"url('/src/assets/workout.jpg')",
         'metric':"url('/src/assets/met.png')",
+        'stat':"url('/src/assets/stat.png')",
+        'userAd':"url('/src/assets/us.jpg')",
+        'AdU':"url('/src/assets/user.png')",
     
       }
     },

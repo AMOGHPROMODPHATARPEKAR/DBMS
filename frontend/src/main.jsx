@@ -19,6 +19,7 @@ import Statistics from './components/Statistics.jsx'
 import UserTrainer from './components/UserTrainer.jsx'
 import Metric from './pages/Metric.jsx'
 import AddInventory from './pages/AddInventory.jsx'
+import UserAdmin from './pages/UserAdmin.jsx'
 
 const router = createBrowserRouter(
   [
@@ -81,6 +82,10 @@ const router = createBrowserRouter(
         ,{
           path:'/add-inventory',
           element:<AddInventory/>
+        }
+        ,{
+          path:'/user',
+          element:<UserAdmin/>
         }
       ]
     }
