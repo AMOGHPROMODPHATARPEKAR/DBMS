@@ -76,8 +76,8 @@ const Profile = () => {
 
       <div className=' flex flex-wrap justify-center item-center  w-[80vw] my-10'>
         <h1 className='w-full py-4 bg-gradient-to-r from-[#0407ca] to-[#ef4444] font-bold text-3xl text-center rounded-md'>My Trainer</h1>
-        
-        <div className=' w-1/4 flex justify-center items-center bg-slate-100 rounded-lg mt-5 gap-y-2'>
+        { trainer &&
+          <div className=' w-1/4 flex justify-center items-center bg-slate-100 rounded-lg mt-5 gap-y-2'>
         <div>
         <h2
             className='text-lg font-bold'
@@ -87,6 +87,8 @@ const Profile = () => {
         </div>
 
         </div>
+        }
+        
 
       </div>
       
