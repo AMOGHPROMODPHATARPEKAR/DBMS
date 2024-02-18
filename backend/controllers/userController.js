@@ -230,11 +230,26 @@ const AddWorkout = async(req,res)=>{
 
 const updateMetric = async(req,res)=>{
     const {id} = req.params;
-    const {height,weight,endurance_score} = req.body
-    const  metric_score = parseInt((parseInt(height)+parseInt(weight)+parseInt(endurance_score))/30)
-    console.log(metric_score)
-    if(metric_score>10)
-        metric_score=metric_score%10;
+    const {height,weight} = req.body
+   const H= parseInt(height);
+   const W= parseInt(weight);
+    const O=H-100;
+    let metric_score;
+    if(O === W)
+    {
+        metric_score=10;
+    }
+    else if((W>O && W<(O+3)) || (W<O && W>(O-3)) )
+    {
+        metric_score=8;
+    }else if((W>O+3 && W<(O+6)) || (W<O-3 && W>(O-6)))
+    {
+        metric_score=6;
+    }else{
+        metric_score=5;
+    }
+
+    
     try {
         
         connection.query(

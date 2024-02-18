@@ -23,6 +23,10 @@ export default {
         'stat':"url('/src/assets/stat.png')",
         'userAd':"url('/src/assets/us.jpg')",
         'AdU':"url('/src/assets/user.png')",
+        'diet':"url('/src/assets/Diet.jpg')",
+        'diet2':"url('/src/assets/d2.jpg')",
+        'salad':"url('/src/assets/salad.jpg')",
+        'jj':"url('/src/assets/jj.jpg')",
     
       }
     },

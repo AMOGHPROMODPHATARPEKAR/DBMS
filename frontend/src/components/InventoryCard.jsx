@@ -33,9 +33,7 @@ const InventoryCard = ({
             
             <div onClick={deleteItem} className=' pt-3 flex justify-end'>
             <AiTwotoneDelete fill='red' size={30}/>
-            </div>
-            
-           
+            </div> 
             
         </div>
   )

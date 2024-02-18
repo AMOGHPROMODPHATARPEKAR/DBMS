@@ -6,6 +6,7 @@ import dotenv from "dotenv"
 import { AddTrainer, AddWorkout, AdminLogin, Userlogin, addTrainer, createUser,getAllUsers,getTrainers, getUser, getUserTrainer, statistics, updateMetric } from './controllers/userController.js';
 import { addInventory, deleteItem, getInventory } from './controllers/InventoryController.js';
 import { enrollUser, enrolled, getUserWorkout, getWorkoutPlan, unroll } from './controllers/workoutController.js';
+import { addDietPlan, addDietRequest, deleteReq, getRequest, getUserDietPlan } from './controllers/DietController.js';
 
 const app = express();
 const PORT = 4000;
@@ -74,6 +75,12 @@ app.get('/api/v1/workout/userWorkout/:userId',getUserWorkout)
 app.post('/api/v1/workout/enrolled',enrolled)
 app.post('/api/v1/workout/unroll',unroll)
 
+//diet
+app.post('/api/v1/diet/addReq/:userid',addDietRequest)
+app.get('/api/v1/diet/getReq',getRequest)
+app.post('/api/v1/diet/addplan/:userid',addDietPlan)
+app.patch('/api/v1/diet/delReq/:reqId',deleteReq)
+app.get('/api/v1/diet/getUserPlan/:userid',getUserDietPlan)
 
 export {connection}
 

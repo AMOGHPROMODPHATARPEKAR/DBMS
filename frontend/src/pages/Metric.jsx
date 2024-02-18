@@ -14,7 +14,6 @@ const Metric = () => {
       const [formData, setFormData] = useState({
           height:0,
           weight:0,
-          endurance_score:0
         });
   
         const handleChange = (e) => {
@@ -39,9 +38,7 @@ const Metric = () => {
       if (!formData.weight) {
         newErrors.weight = 'weight is required';
       }
-      if (!formData.endurance_score) {
-        newErrors.endurance_score = 'Enduranc escore is required';
-      }
+      
       
   
       console.log(Object.keys(newErrors).length)
@@ -103,11 +100,7 @@ const Metric = () => {
       <input className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 weight-200 border border-gray-200 w-full ${errors.height? 'border-red-600' : 'border-gray-400'}`} type="number" min='0' name="weight" value={formData.weight}  onChange={handleChange} />
       {errors.weight && <div className=" text-red-800 text-left  text-sm">{errors.weight}</div>}
         
-         <label className=' w-full  inline-block mb-1 pl-1 text-xl font-semibold '>Endurance:</label>
-      <input className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 weight-200 border border-gray-200 w-full ${errors.height? 'border-red-600' : 'border-gray-400'}`} type="number" min='0' max='10' name="endurance_score" value={formData.endurance_score}  onChange={handleChange} />
-      {errors.endurance_score && <div className=" text-red-800 text-left  text-sm">{errors.endurance_score}</div>}
       
-    
             <div className=' flex justify-center items-center'>
             <Button className=' w-1/4 bg-blue-600 rounded-lg cursor-pointer hover:bg-blue-700 '  type="submit">Calculate</Button>
             </div>

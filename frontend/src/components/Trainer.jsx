@@ -32,7 +32,6 @@ const Trainer = () => {
             ))}
             </div>
 
-      
 
     </div>
   )

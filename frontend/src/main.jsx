@@ -20,6 +20,9 @@ import UserTrainer from './components/UserTrainer.jsx'
 import Metric from './pages/Metric.jsx'
 import AddInventory from './pages/AddInventory.jsx'
 import UserAdmin from './pages/UserAdmin.jsx'
+import DietPlan from './pages/DietPlan.jsx'
+import DietAdmin from './pages/DietAdmin.jsx'
+import AddDiet from './pages/AddDiet.jsx'
 
 const router = createBrowserRouter(
   [
@@ -86,6 +89,18 @@ const router = createBrowserRouter(
         ,{
           path:'/user',
           element:<UserAdmin/>
+        }
+        ,{
+          path:'/diet-user',
+          element:<DietPlan/>
+        }
+        ,{
+          path:'/diet-admin',
+          element:<DietAdmin/>
+        }
+        ,{
+          path:'/add-diet/:userId/:reqId',
+          element:<AddDiet/>
         }
       ]
     }

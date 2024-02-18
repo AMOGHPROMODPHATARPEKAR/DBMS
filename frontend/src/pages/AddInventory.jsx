@@ -46,7 +46,7 @@ const AddInventory = () => {
                     </span>
         </div>
         
-        <h2 className="text-center text-2xl font-bold leading-tight mb-3">Add Inventory</h2>
+      <h2 className="text-center text-2xl font-bold leading-tight mb-3">Add Inventory</h2>
     <form onSubmit={handleSubmit(onsubmit)} className=' py-2'>
     <div className='space-y-5 '>
       <label className=' w-full  inline-block mb-1 pl-1 font-semibold'>Item Name</label>

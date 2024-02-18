@@ -36,6 +36,10 @@ const Home = () => {
       <div onClick={()=>navigate('/Usertrainer')} className='bg-trainer bg-center relative bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer'>
         <h1 className=' w-fit h-fit p-2 bg-white/70   rounded-md'>Pick Your Trainer</h1>
       </div>
+      
+      <div onClick={()=>navigate('/diet-user')} className='bg-salad bg-center relative bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer'>
+        <h1 className=' w-fit h-fit p-2 bg-white/70   rounded-md'>Diet Plan</h1>
+      </div>
 
     </div>
     )
@@ -61,6 +65,10 @@ const Home = () => {
 
       <div onClick={()=>navigate('/user')} className='bg-userAd relative bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer' style={{backgroundPosition: 'center -130px'}}>
         <h1 className=' w-fit h-fit p-2 bg-white/70   rounded-md'>Members</h1>
+      </div>
+
+      <div onClick={()=>navigate('/diet-admin')} className='bg-diet bg-center relative bg-no-repeat bg-opacity-3 backdrop-blur-sm bg-white  bg-cover h-[300px] flex justify-center  items-center text-4xl font-bold  w-[80vw] my-10 shadow-lg shadow-black rounded-md cursor-pointer'>
+        <h1 className=' w-fit h-fit p-2 bg-white/70   rounded-md'>Plan the Diet</h1>
       </div>
 
     </div>
